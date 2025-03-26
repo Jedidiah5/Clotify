@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Product } from '@/lib/types';
 import { addProduct, updateProduct, deleteProduct } from '@/lib/firebase/firebaseUtils';
+import Image from 'next/image';
 
 interface AdminPanelProps {
   products: Product[];
@@ -203,7 +204,15 @@ export default function AdminPanel({ products, onProductUpdate }: AdminPanelProp
             {products.map((product) => (
               <tr key={product.id} className="border-b">
                 <td className="px-4 py-2">
-                  <img src={product.imageUrl} alt={product.name} className="w-16 h-16 object-cover" />
+                  <div className="relative w-full h-48 rounded-lg overflow-hidden">
+                    <Image
+                      src={product.imageUrl}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
                 </td>
                 <td className="px-4 py-2">{product.name}</td>
                 <td className="px-4 py-2">${product.price.toFixed(2)}</td>

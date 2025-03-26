@@ -1,5 +1,6 @@
 import { CartItem } from '@/lib/types';
 import { XMarkIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 interface ShoppingCartProps {
   items: CartItem[];
@@ -35,11 +36,13 @@ export default function ShoppingCart({ items, onUpdateQuantity, onRemoveItem, on
                 key={`${item.id}-${item.selectedSize}-${item.selectedColor}`}
                 className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg transform transition-all duration-200 hover:shadow-md"
               >
-                <div className="relative w-20 h-20 flex-shrink-0">
-                  <img
+                <div className="relative w-20 h-20 rounded-lg overflow-hidden">
+                  <Image
                     src={item.imageUrl}
                     alt={item.name}
-                    className="w-full h-full object-cover rounded-md"
+                    fill
+                    sizes="80px"
+                    className="object-cover"
                   />
                 </div>
                 <div className="flex-grow">

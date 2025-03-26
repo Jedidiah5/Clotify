@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Product } from '@/lib/types';
+import Image from 'next/image';
 
 interface SearchBarProps {
   products: Product[];
@@ -82,28 +83,26 @@ export default function SearchBar({ products, onSelectProduct }: SearchBarProps)
       {isOpen && filteredProducts.length > 0 && (
         <div className="absolute z-50 w-full mt-2 bg-gray-900 rounded-lg shadow-lg border border-gray-700 max-h-96 overflow-auto">
           {filteredProducts.map((product) => (
-            <button
-              key={product.id}
-              onClick={() => {
-                onSelectProduct(product.id);
-                setIsOpen(false);
-                setSearchQuery('');
-              }}
-              className="w-full px-4 py-3 text-left hover:bg-gray-800 flex items-center space-x-3 border-b border-gray-700 last:border-b-0"
-            >
-              <div className="relative w-12 h-12 flex-shrink-0">
-                <img
+            <div key={product.id} className="flex items-center p-2 hover:bg-gray-800 rounded cursor-pointer" onClick={() => {
+              onSelectProduct(product.id);
+              setIsOpen(false);
+              setSearchQuery('');
+            }}>
+              <div className="relative w-12 h-12 mr-3 rounded overflow-hidden">
+                <Image
                   src={product.imageUrl}
                   alt={product.name}
-                  className="w-full h-full object-cover rounded"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
                 />
               </div>
-              <div className="flex-grow">
-                <h4 className="text-sm font-medium text-gray-200">{product.name}</h4>
+              <div className="flex-1">
+                <p className="text-sm font-medium text-gray-200">{product.name}</p>
                 <p className="text-xs text-gray-400">{product.category}</p>
-                <p className="text-sm font-medium text-primary">${product.price.toFixed(2)}</p>
               </div>
-            </button>
+              <p className="text-sm font-semibold text-primary">${product.price.toFixed(2)}</p>
+            </div>
           ))}
         </div>
       )}

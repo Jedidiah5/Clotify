@@ -130,9 +130,12 @@ export const getCart = async (userId: string): Promise<Cart | null> => {
       return null;
     }
     
+    const cartData = querySnapshot.docs[0].data();
     return {
       id: querySnapshot.docs[0].id,
-      ...querySnapshot.docs[0].data()
+      userId: cartData.userId,
+      items: cartData.items || [],
+      total: cartData.total || 0
     } as Cart;
   } catch (error) {
     console.error('Error getting cart:', error);
