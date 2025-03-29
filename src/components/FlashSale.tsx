@@ -16,7 +16,7 @@ export default function FlashSale({ products, onAddToCart }: FlashSaleProps) {
     <div className="w-full py-8">
       <div className="text-center mb-6">
         <h2 className="text-3xl font-bold text-primary mb-2">Flash Sale</h2>
-        <p className="text-gray-400">Limited time offers! Don't miss out!</p>
+        <p className="text-gray-400">Limited time offers! Don&apos;t miss out!</p>
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
