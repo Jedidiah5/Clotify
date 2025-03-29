@@ -20,7 +20,7 @@ export default function Home() {
     }))
   );
   const [showCart, setShowCart] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Home');
   const [mounted, setMounted] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   
@@ -71,8 +71,8 @@ export default function Home() {
     }
   };
 
-  const filteredProducts = selectedCategory === 'All'
-    ? products
+  const filteredProducts = selectedCategory === 'Home'
+    ? products.filter(product => product.category !== 'Models')
     : products.filter(product => product.category === selectedCategory);
 
   // Handle escape key to close cart
@@ -108,7 +108,7 @@ export default function Home() {
       <main className="max-w-[1440px] mx-auto px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-8 justify-center">
           <div className="w-full max-w-6xl mx-auto">
-            {selectedCategory === 'All' && (
+            {selectedCategory === 'Home' && (
               <>
                 <FlashSale products={products} onAddToCart={handleAddToCart} />
                 
@@ -121,7 +121,8 @@ export default function Home() {
 
             <ProductGrid 
               products={filteredProducts} 
-              onAddToCart={handleAddToCart} 
+              onAddToCart={handleAddToCart}
+              showModels={selectedCategory === 'Models'}
             />
           </div>
         </div>

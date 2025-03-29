@@ -43,6 +43,17 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     stock: 30,
     createdAt: new Date()
   },
+  {
+    name: 'Tropical Print Shirt',
+    description: 'Stylish tropical print t-shirt',
+    price: 39.99,
+    imageUrl: '/Pictures/Tropicalshirt2.avif',
+    category: 'T-Shirts',
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Multi', 'Blue', 'White'],
+    stock: 25,
+    createdAt: new Date()
+  },
 
   // Jackets
   {
@@ -86,6 +97,17 @@ export const initialProducts: Omit<Product, 'id'>[] = [
       endDate: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000) // 4 days from now
     }
   },
+  {
+    name: 'Red Female Jacket',
+    description: 'Stylish red jacket for women',
+    price: 89.99,
+    imageUrl: '/Pictures/Redfemalejacket.avif',
+    category: 'Jackets',
+    sizes: ['XS', 'S', 'M', 'L'],
+    colors: ['Red', 'Black', 'White'],
+    stock: 15,
+    createdAt: new Date()
+  },
 
   // Dresses
   {
@@ -122,38 +144,161 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     createdAt: new Date()
   },
 
-  // Accessories
+  // Trousers
   {
-    name: 'Stylish Hoodie',
-    description: 'Comfortable and warm hoodie for casual wear',
-    price: 49.99,
-    imageUrl: '/Pictures/hoodie.avif',
-    category: 'Accessories',
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Grey', 'Black', 'Navy'],
+    name: 'Classic Blue Jeans',
+    description: 'Classic fit denim jeans',
+    price: 59.99,
+    imageUrl: '/Pictures/Jeans.jpg',
+    category: 'Trousers',
+    sizes: ['30', '32', '34', '36', '38'],
+    colors: ['Blue', 'Black', 'Grey'],
     stock: 40,
     createdAt: new Date()
   },
   {
-    name: 'Kids Rain Coat',
-    description: 'Waterproof rain coat for children',
-    price: 39.99,
-    imageUrl: '/Pictures/babyraincoat.avif',
-    category: 'Accessories',
-    sizes: ['2T', '3T', '4T', '5T'],
-    colors: ['Yellow', 'Blue', 'Pink'],
+    name: 'Black Denim Jeans',
+    description: 'Slim fit black denim jeans',
+    price: 64.99,
+    imageUrl: '/Pictures/blackjeans.avif',
+    category: 'Trousers',
+    sizes: ['30', '32', '34', '36', '38'],
+    colors: ['Black', 'Dark Blue', 'Grey'],
+    stock: 35,
+    createdAt: new Date()
+  },
+  {
+    name: 'Green Cargo Pants',
+    description: 'Comfortable cargo pants in green',
+    price: 49.99,
+    imageUrl: '/Pictures/greencargopants.avif',
+    category: 'Trousers',
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Green', 'Black', 'Khaki'],
     stock: 30,
     createdAt: new Date()
   },
   {
-    name: 'Trench Coat',
-    description: 'Classic trench coat for all occasions',
-    price: 149.99,
-    imageUrl: '/Pictures/trenchcoat.avif',
-    category: 'Accessories',
+    name: 'Classic Cargo Pants',
+    description: 'Traditional cargo pants with multiple pockets',
+    price: 54.99,
+    imageUrl: '/Pictures/Cargopants.avif',
+    category: 'Trousers',
     sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Beige', 'Black', 'Navy'],
-    stock: 15,
+    colors: ['Khaki', 'Black', 'Grey'],
+    stock: 25,
+    createdAt: new Date()
+  },
+  {
+    name: 'White Trousers',
+    description: 'Elegant white trousers for formal occasions',
+    price: 69.99,
+    imageUrl: '/Pictures/whitetrousers.jpg',
+    category: 'Trousers',
+    sizes: ['30', '32', '34', '36', '38'],
+    colors: ['White', 'Beige', 'Light Grey'],
+    stock: 20,
+    createdAt: new Date()
+  },
+  {
+    name: 'Brown Trousers',
+    description: 'Classic brown trousers for any occasion',
+    price: 59.99,
+    imageUrl: '/Pictures/brown Trousers.avif',
+    category: 'Trousers',
+    sizes: ['30', '32', '34', '36', '38'],
+    colors: ['Brown', 'Dark Brown', 'Tan'],
+    stock: 25,
+    createdAt: new Date()
+  },
+
+  // Models
+  {
+    name: 'Model 1',
+    description: 'Fashion model showcasing latest trends',
+    price: 0,
+    imageUrl: '/Pictures/Model1.avif',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 2',
+    description: 'Professional model in casual wear',
+    price: 0,
+    imageUrl: '/Pictures/Model2.avif',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 3',
+    description: 'Fashion model in street style',
+    price: 0,
+    imageUrl: '/Pictures/MOdel3.avif',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 4',
+    description: 'Professional model in urban fashion',
+    price: 0,
+    imageUrl: '/Pictures/Model4.avif',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 5',
+    description: 'Fashion model in contemporary style',
+    price: 0,
+    imageUrl: '/Pictures/Model5.avif',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 6',
+    description: 'Professional model in modern fashion',
+    price: 0,
+    imageUrl: '/Pictures/Model6.jpg',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 7',
+    description: 'Fashion model in trendy attire',
+    price: 0,
+    imageUrl: '/Pictures/Model7.jpg',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
+    createdAt: new Date()
+  },
+  {
+    name: 'Model 8',
+    description: 'Professional model in casual chic',
+    price: 0,
+    imageUrl: '/Pictures/Model8.avif',
+    category: 'Models',
+    sizes: [],
+    colors: [],
+    stock: 0,
     createdAt: new Date()
   }
 ]; 
