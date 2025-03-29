@@ -9,6 +9,10 @@ export interface Product {
   colors: string[];
   stock: number;
   createdAt: Date;
+  discount?: {
+    percentage: number;
+    endDate: Date;
+  };
 }
 
 export interface CartItem extends Product {

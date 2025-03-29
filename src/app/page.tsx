@@ -5,6 +5,7 @@ import { Product } from '@/lib/types';
 import ProductGrid from '@/components/ProductGrid';
 import ShoppingCart from '@/components/ShoppingCart';
 import Navigation from '@/components/Navigation';
+import FlashSale from '@/components/FlashSale';
 import { initialProducts } from '@/lib/data/products';
 import { useCart } from '@/lib/hooks/useCart';
 import { toast } from 'react-hot-toast';
@@ -107,25 +108,37 @@ export default function Home() {
       <main className="max-w-[1440px] mx-auto px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-8 justify-center">
           <div className="w-full max-w-6xl mx-auto">
+            {selectedCategory === 'All' && (
+              <>
+                <FlashSale products={products} onAddToCart={handleAddToCart} />
+                
+                <div className="text-center my-12">
+                  <h2 className="text-3xl font-bold text-primary mb-2">Deals of the Week</h2>
+                  <p className="text-gray-400">Discover our best-selling items at great prices</p>
+                </div>
+              </>
+            )}
+
             <ProductGrid 
               products={filteredProducts} 
               onAddToCart={handleAddToCart} 
             />
           </div>
-          <div className={`fixed top-24 right-8 w-full max-w-md transform transition-all duration-300 ease-in-out ${
-            showCart ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-          }`}>
-            {showCart && (
-              <ShoppingCart
-                items={cartItems}
-                onUpdateQuantity={handleUpdateQuantity}
-                onRemoveItem={handleRemoveItem}
-                onClose={() => setShowCart(false)}
-              />
-            )}
-          </div>
         </div>
       </main>
+
+      <div className={`fixed top-24 right-8 w-full max-w-md transform transition-all duration-300 ease-in-out ${
+        showCart ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+      }`}>
+        {showCart && (
+          <ShoppingCart
+            items={cartItems}
+            onUpdateQuantity={handleUpdateQuantity}
+            onRemoveItem={handleRemoveItem}
+            onClose={() => setShowCart(false)}
+          />
+        )}
+      </div>
     </div>
   );
 }

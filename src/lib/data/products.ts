@@ -6,29 +6,37 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Classic Green T-Shirt',
     description: 'Comfortable cotton t-shirt in fresh green',
     price: 29.99,
-    imageUrl: '/pictures/greentshirts.avif',
+    imageUrl: '/Pictures/greentshirts.avif',
     category: 'T-Shirts',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Green', 'Blue', 'Black'],
     stock: 50,
-    createdAt: new Date()
+    createdAt: new Date(),
+    discount: {
+      percentage: 20,
+      endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days from now
+    }
   },
   {
     name: 'Summer Collection Shirt',
     description: 'Light and breezy summer t-shirt',
     price: 24.99,
-    imageUrl: '/pictures/summershirt.avif',
+    imageUrl: '/Pictures/summershirt.avif',
     category: 'T-Shirts',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['White', 'Blue', 'Yellow'],
     stock: 45,
-    createdAt: new Date()
+    createdAt: new Date(),
+    discount: {
+      percentage: 15,
+      endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000) // 5 days from now
+    }
   },
   {
     name: 'Yellow Fashion Tee',
     description: 'Trendy yellow t-shirt for casual wear',
     price: 34.99,
-    imageUrl: '/pictures/Yellowshirts.avif',
+    imageUrl: '/Pictures/Yellowshirts.avif',
     category: 'T-Shirts',
     sizes: ['S', 'M', 'L'],
     colors: ['Yellow', 'White', 'Black'],
@@ -41,18 +49,22 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Classic Varsity Jacket',
     description: 'Traditional varsity jacket with modern style',
     price: 89.99,
-    imageUrl: '/pictures/Varsityjacket1.jpg',
+    imageUrl: '/Pictures/Varsityjacket1.jpg',
     category: 'Jackets',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Red/White', 'Blue/White', 'Black/White'],
     stock: 25,
-    createdAt: new Date()
+    createdAt: new Date(),
+    discount: {
+      percentage: 25,
+      endDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) // 3 days from now
+    }
   },
   {
     name: 'Denim Jean Jacket',
     description: 'Classic denim jacket for all seasons',
     price: 79.99,
-    imageUrl: '/pictures/jeanjackets.jpg',
+    imageUrl: '/Pictures/jeanjackets.jpg',
     category: 'Jackets',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Blue', 'Light Blue', 'Dark Blue'],
@@ -63,12 +75,16 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Professional Suit Jacket',
     description: 'Elegant suit jacket for formal occasions',
     price: 199.99,
-    imageUrl: '/pictures/Suitjacket.jpg',
+    imageUrl: '/Pictures/Suitjacket.jpg',
     category: 'Jackets',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Black', 'Navy', 'Grey'],
     stock: 20,
-    createdAt: new Date()
+    createdAt: new Date(),
+    discount: {
+      percentage: 30,
+      endDate: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000) // 4 days from now
+    }
   },
 
   // Dresses
@@ -76,7 +92,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Two-Piece Female Set',
     description: 'Elegant two-piece set for special occasions',
     price: 129.99,
-    imageUrl: '/pictures/2pieceforfemale.jpg',
+    imageUrl: '/Pictures/2pieceforfemale.jpg',
     category: 'Dresses',
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['Black', 'Red', 'White'],
@@ -87,7 +103,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Sleeveless Summer Dress',
     description: 'Light and stylish sleeveless dress',
     price: 69.99,
-    imageUrl: '/pictures/Slevlessfemale.jpg',
+    imageUrl: '/Pictures/Slevlessfemale.jpg',
     category: 'Dresses',
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['White', 'Pink', 'Blue'],
@@ -98,7 +114,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Native Pattern Dress',
     description: 'Beautiful dress with native patterns',
     price: 89.99,
-    imageUrl: '/pictures/Nativeshirtfemale.avif',
+    imageUrl: '/Pictures/Nativeshirtfemale.avif',
     category: 'Dresses',
     sizes: ['S', 'M', 'L'],
     colors: ['Multi', 'Blue', 'Green'],
@@ -111,7 +127,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Stylish Hoodie',
     description: 'Comfortable and warm hoodie for casual wear',
     price: 49.99,
-    imageUrl: '/pictures/hoodie.avif',
+    imageUrl: '/Pictures/hoodie.avif',
     category: 'Accessories',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Grey', 'Black', 'Navy'],
@@ -122,7 +138,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Kids Rain Coat',
     description: 'Waterproof rain coat for children',
     price: 39.99,
-    imageUrl: '/pictures/babyraincoat.avif',
+    imageUrl: '/Pictures/babyraincoat.avif',
     category: 'Accessories',
     sizes: ['2T', '3T', '4T', '5T'],
     colors: ['Yellow', 'Blue', 'Pink'],
@@ -133,7 +149,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     name: 'Trench Coat',
     description: 'Classic trench coat for all occasions',
     price: 149.99,
-    imageUrl: '/pictures/trenchcoat.avif',
+    imageUrl: '/Pictures/trenchcoat.avif',
     category: 'Accessories',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Beige', 'Black', 'Navy'],
