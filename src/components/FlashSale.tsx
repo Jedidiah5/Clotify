@@ -1,6 +1,5 @@
 import { Product } from '@/lib/types';
 import Image from 'next/image';
-import { formatDistanceToNow } from 'date-fns';
 
 interface FlashSaleProps {
   products: Product[];
@@ -8,7 +7,7 @@ interface FlashSaleProps {
 }
 
 export default function FlashSale({ products, onAddToCart }: FlashSaleProps) {
-  const discountedProducts = products.filter(product => product.discount).slice(0, 4);
+  const discountedProducts = products.filter(product => product.discount && product.discount > 0).slice(0, 4);
 
   if (discountedProducts.length === 0) return null;
 
@@ -21,15 +20,12 @@ export default function FlashSale({ products, onAddToCart }: FlashSaleProps) {
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {discountedProducts.map((product) => {
-          const discountedPrice = product.price * (1 - (product.discount?.percentage || 0) / 100);
-          const timeLeft = product.discount?.endDate 
-            ? formatDistanceToNow(product.discount.endDate, { addSuffix: true })
-            : '';
+          const discountedPrice = product.price * (1 - (product.discount || 0) / 100);
 
           return (
             <div
               key={product.id}
-              className="bg-gray-900 rounded-lg overflow-hidden border-2 border-primary/50 hover:border-primary transition-all duration-300"
+              className="bg-gray-900 rounded-lg overflow-hidden border-2 border-primary/50 hover:border-primary transition-all duration-300 flex flex-col"
             >
               <div className="relative h-48 w-full">
                 <Image
@@ -40,23 +36,25 @@ export default function FlashSale({ products, onAddToCart }: FlashSaleProps) {
                   className="object-cover"
                 />
                 <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-semibold">
-                  {product.discount?.percentage}% OFF
+                  {product.discount}% OFF
                 </div>
               </div>
               
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-200 mb-1">{product.name}</h3>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-gray-400 line-through">${product.price.toFixed(2)}</span>
-                  <span className="text-primary font-bold">${discountedPrice.toFixed(2)}</span>
+              <div className="p-4 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold text-gray-200 mb-1 truncate">{product.name}</h3>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-gray-400 line-through text-sm">${product.price.toFixed(2)}</span>
+                  <span className="text-primary font-bold text-xl">${discountedPrice.toFixed(2)}</span>
                 </div>
-                <p className="text-sm text-gray-400 mb-3">Ends {timeLeft}</p>
                 
+                <div className="flex-grow"></div>
+
                 <button
                   onClick={() => onAddToCart(product, product.sizes[0], product.colors[0])}
-                  className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-dark transition-colors duration-200"
+                  disabled={product.stock === 0}
+                  className={`w-full mt-2 bg-primary text-white py-2 rounded-md transition-colors duration-200 ${product.stock === 0 ? 'bg-gray-600 cursor-not-allowed' : 'hover:bg-primary-dark'}`}
                 >
-                  Add to Cart
+                  {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
                 </button>
               </div>
             </div>
@@ -65,4 +63,5 @@ export default function FlashSale({ products, onAddToCart }: FlashSaleProps) {
       </div>
     </div>
   );
+} 
 } 
