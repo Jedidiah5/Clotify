@@ -64,4 +64,3 @@ export default function FlashSale({ products, onAddToCart }: FlashSaleProps) {
     </div>
   );
 } 
-} 
