@@ -15,7 +15,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     discount: {
       percentage: 20,
       endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days from now
-    }
+    },
+    rating: 4.5
   },
   {
     name: 'Summer Collection Shirt',
@@ -30,7 +31,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     discount: {
       percentage: 15,
       endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000) // 5 days from now
-    }
+    },
+    rating: 4.7
   },
   {
     name: 'Yellow Fashion Tee',
@@ -41,7 +43,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['S', 'M', 'L'],
     colors: ['Yellow', 'White', 'Black'],
     stock: 30,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.2
   },
   {
     name: 'Tropical Print Shirt',
@@ -52,7 +55,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Multi', 'Blue', 'White'],
     stock: 25,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.6
   },
 
   // Jackets
@@ -69,7 +73,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     discount: {
       percentage: 25,
       endDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) // 3 days from now
-    }
+    },
+    rating: 4.8
   },
   {
     name: 'Denim Jean Jacket',
@@ -80,7 +85,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Blue', 'Light Blue', 'Dark Blue'],
     stock: 35,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.5
   },
   {
     name: 'Professional Suit Jacket',
@@ -95,7 +101,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     discount: {
       percentage: 30,
       endDate: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000) // 4 days from now
-    }
+    },
+    rating: 4.9
   },
   {
     name: 'Red Female Jacket',
@@ -106,7 +113,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['Red', 'Black', 'White'],
     stock: 15,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.8
   },
 
   // Dresses
@@ -119,7 +127,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['Black', 'Red', 'White'],
     stock: 15,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.6
   },
   {
     name: 'Sleeveless Summer Dress',
@@ -130,7 +139,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['White', 'Pink', 'Blue'],
     stock: 25,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.4
   },
   {
     name: 'Native Pattern Dress',
@@ -141,7 +151,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['S', 'M', 'L'],
     colors: ['Multi', 'Blue', 'Green'],
     stock: 20,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.7
   },
 
   // Trousers
@@ -154,7 +165,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['30', '32', '34', '36', '38'],
     colors: ['Blue', 'Black', 'Grey'],
     stock: 40,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.7
   },
   {
     name: 'Black Denim Jeans',
@@ -165,7 +177,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['30', '32', '34', '36', '38'],
     colors: ['Black', 'Dark Blue', 'Grey'],
     stock: 35,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.5
   },
   {
     name: 'Green Cargo Pants',
@@ -176,7 +189,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Green', 'Black', 'Khaki'],
     stock: 30,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.4
   },
   {
     name: 'Classic Cargo Pants',
@@ -187,7 +201,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Khaki', 'Black', 'Grey'],
     stock: 25,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.6
   },
   {
     name: 'White Trousers',
@@ -198,7 +213,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['30', '32', '34', '36', '38'],
     colors: ['White', 'Beige', 'Light Grey'],
     stock: 20,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.3
   },
   {
     name: 'Brown Trousers',
@@ -209,7 +225,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: ['30', '32', '34', '36', '38'],
     colors: ['Brown', 'Dark Brown', 'Tan'],
     stock: 25,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.4
   },
 
   // Models
@@ -222,7 +239,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.7
   },
   {
     name: 'Model 2',
@@ -233,7 +251,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.8
   },
   {
     name: 'Model 3',
@@ -244,7 +263,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.6
   },
   {
     name: 'Model 4',
@@ -255,7 +275,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.9
   },
   {
     name: 'Model 5',
@@ -266,7 +287,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.5
   },
   {
     name: 'Model 6',
@@ -277,7 +299,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.7
   },
   {
     name: 'Model 7',
@@ -288,7 +311,8 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.8
   },
   {
     name: 'Model 8',
@@ -299,6 +323,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     sizes: [],
     colors: [],
     stock: 0,
-    createdAt: new Date()
+    createdAt: new Date(),
+    rating: 4.9
   }
 ]; 

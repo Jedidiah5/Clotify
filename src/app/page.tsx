@@ -9,6 +9,7 @@ import FlashSale from '@/components/FlashSale';
 import { initialProducts } from '@/lib/data/products';
 import { useCart } from '@/lib/hooks/useCart';
 import { toast } from 'react-hot-toast';
+import ProductModal from '@/components/ProductModal';
 
 export default function Home() {
   // Initialize products with proper IDs
@@ -23,6 +24,8 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('Home');
   const [mounted, setMounted] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProductForModal, setSelectedProductForModal] = useState<Product | null>(null);
   
   const { 
     cartItems, 
@@ -59,15 +62,30 @@ export default function Home() {
     });
   };
 
+  const handleProductClick = (product: Product) => {
+    setSelectedProductForModal(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProductForModal(null);
+  };
+
   const handleProductSelect = (productId: string) => {
-    setSelectedProductId(productId);
-    const element = document.getElementById(`product-${productId}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      element.classList.add('ring-4', 'ring-primary', 'ring-opacity-50');
-      setTimeout(() => {
-        element.classList.remove('ring-4', 'ring-primary', 'ring-opacity-50');
-      }, 2000);
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      handleProductClick(product);
+    } else {
+      setSelectedProductId(productId);
+      const element = document.getElementById(`product-${productId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.classList.add('ring-4', 'ring-primary', 'ring-opacity-50');
+        setTimeout(() => {
+          element.classList.remove('ring-4', 'ring-primary', 'ring-opacity-50');
+        }, 2000);
+      }
     }
   };
 
@@ -89,7 +107,12 @@ export default function Home() {
   }, []);
 
   if (!mounted) {
-    return null; // or return a loading skeleton
+    // Show a loading indicator while the component is mounting
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
   }
 
   return (
@@ -123,6 +146,7 @@ export default function Home() {
               products={filteredProducts} 
               onAddToCart={handleAddToCart}
               showModels={selectedCategory === 'Models'}
+              onProductClick={handleProductClick}
             />
           </div>
         </div>
@@ -140,6 +164,14 @@ export default function Home() {
           />
         )}
       </div>
+
+      <ProductModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        product={selectedProductForModal}
+        onAddToCart={handleAddToCart}
+        allProducts={products}
+      />
     </div>
   );
 }

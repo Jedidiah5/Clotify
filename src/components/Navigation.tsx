@@ -1,6 +1,7 @@
 import { Product } from '@/lib/types';
 import SearchBar from './SearchBar';
 import { useState } from 'react';
+import { ShoppingCart } from 'lucide-react';
 
 interface NavigationProps {
   selectedCategory: string;
@@ -81,11 +82,12 @@ export default function Navigation({
             </div>
             <button
               onClick={onToggleCart}
-              className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-3 sm:px-4 rounded flex items-center transform hover:scale-105 transition-all duration-300 ease-in-out relative"
+              className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-3 sm:px-4 rounded flex items-center gap-2 transform hover:scale-105 transition-all duration-300 ease-in-out relative"
               aria-label={`Shopping cart with ${cartCount} items`}
             >
-              <span className="hidden sm:inline mr-2">Cart</span>
-              <span className="bg-white text-primary rounded-full w-5 h-5 flex items-center justify-center text-xs">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="hidden sm:inline">Cart</span>
+              <span className="bg-white text-primary rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold">
                 {cartCount}
               </span>
             </button>
