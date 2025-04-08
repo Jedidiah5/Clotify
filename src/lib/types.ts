@@ -17,4 +17,11 @@ export interface CartItem extends Product {
   quantity: number;
   selectedSize: string;
   selectedColor: string;
+}
+
+export interface Cart {
+  items: CartItem[];
+  // Add other potential cart properties here later if needed, e.g.:
+  // userId?: string;
+  // lastUpdated?: Date;
 } 
