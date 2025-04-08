@@ -12,10 +12,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     colors: ['Green', 'Blue', 'Black'],
     stock: 50,
     createdAt: new Date(),
-    discount: {
-      percentage: 20,
-      endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days from now
-    },
+    discount: 20,
     rating: 4.5
   },
   {
@@ -28,10 +25,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     colors: ['White', 'Blue', 'Yellow'],
     stock: 45,
     createdAt: new Date(),
-    discount: {
-      percentage: 15,
-      endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000) // 5 days from now
-    },
+    discount: 15,
     rating: 4.7
   },
   {
@@ -70,10 +64,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     colors: ['Red/White', 'Blue/White', 'Black/White'],
     stock: 25,
     createdAt: new Date(),
-    discount: {
-      percentage: 25,
-      endDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) // 3 days from now
-    },
+    discount: 25,
     rating: 4.8
   },
   {
@@ -98,10 +89,7 @@ export const initialProducts: Omit<Product, 'id'>[] = [
     colors: ['Black', 'Navy', 'Grey'],
     stock: 20,
     createdAt: new Date(),
-    discount: {
-      percentage: 30,
-      endDate: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000) // 4 days from now
-    },
+    discount: 30,
     rating: 4.9
   },
   {
