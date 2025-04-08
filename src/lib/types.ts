@@ -10,6 +10,7 @@ export interface Product {
   stock: number;
   discount?: number; // Optional discount percentage
   rating?: number; // Optional product rating (e.g., 1-5)
+  createdAt?: Date; // Optional creation date
 }
 
 export interface CartItem extends Product {
